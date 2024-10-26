@@ -79,7 +79,7 @@ Maven supports packaging and releasing Java applications in standard formats (JA
 1. **Jenkins**
 Maven integrates seamlessly with Jenkins for automated builds in CI/CD pipelines. Jenkins can be configured to execute Maven goals (e.g., clean, install, deploy) on code pushes, providing quick feedback to developers and ensuring project integrity.
 
-Example Jenkins Pipeline:
+*Example Jenkins Pipeline*:
 
 ```
 pipeline {
