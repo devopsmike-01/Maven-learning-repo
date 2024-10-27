@@ -1,6 +1,6 @@
 # Maven-Learning-Repo
 
-## This site was built using [DevOpswithMike](https://www.youtube.com/@DevOpsWithMike0/videos).
+ This site repository is maintained by [DevOpswithMike](https://www.youtube.com/@DevOpsWithMike0/videos).
 
 ## Introduction
 Apache Maven is a popular open-source build automation and dependency management tool, particularly for Java-based projects. Maven uses a file called pom.xml (Project Object Model) as its configuration to manage project structure, dependencies, plugins, and lifecycle phases in a unified way.
