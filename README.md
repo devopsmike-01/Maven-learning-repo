@@ -169,8 +169,7 @@ jobs:
 ```
 
 # Development Environment Project
- 
-![Description of the image] (maven-learning-repo/maven-learning.drawio.png)
+![maven-learning](maven-learning-repo/maven-learning.drawio.png)
 
 ###### Project ToolBox 🧰
 - [Git](https://git-scm.com/) Git will be used to manage our application source code.
