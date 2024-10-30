@@ -7,7 +7,7 @@
 ## Introduction
 Apache Maven is a popular open-source build automation and dependency management tool, particularly for Java-based projects. Maven uses a file called pom.xml (Project Object Model) as its configuration to manage project structure, dependencies, plugins, and lifecycle phases in a unified way.
 
- Official [maven](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html) documentation
+ Official [Maven](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html) documentation
 
 ## Background
 Maven was initially developed to simplify the project build process by eliminating the complexity of managing project dependencies and builds. It leverages a "Convention over Configuration" approach, which standardizes the project structure and lifecycle, making it easier for developers to manage builds and dependencies without excessive configuration.
@@ -35,7 +35,7 @@ This is the main lifecycle that covers project build and deployment:
 
 - *`validate`*: Validates the project is correct and all necessary information is available.
 - *`compile`*: Compiles the source code of the project.
-test: Tests the compiled source code using a suitable unit testing framework.
+- *`test`*: Tests the compiled source code using a suitable unit testing framework.
 - *`package`*: Packages the compiled code into a distributable format, such as a JAR or WAR file.
 - *`verify`*: Runs checks to verify the integrity and quality of the packaged artifact.
 - *`install`*: Installs the package into the local repository for use as a dependency in other local projects.
@@ -169,7 +169,9 @@ jobs:
 ```
 
 # Development Environment Project
-<img src="maven-learning.drawio.svg" alt="Project architecture">
+ 
+![Description of the image] (maven-learning-repo/maven-learning.drawio.png)
+
 ###### Project ToolBox 🧰
 - [Git](https://git-scm.com/) Git will be used to manage our application source code.
 - [Github](https://github.com/) Github is a free and open source distributed VCS designed to handle everything from small to very large projects with speed and efficiency
