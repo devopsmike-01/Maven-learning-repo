@@ -2,8 +2,12 @@
 
  This site repository is maintained by [DevOpswithMike](https://www.youtube.com/@DevOpsWithMike0/videos).
 
+ For Cloud and DevOps interview prepartion, use this platform [Wandaprep](https://www.wandaprep.com/).
+
 ## Introduction
 Apache Maven is a popular open-source build automation and dependency management tool, particularly for Java-based projects. Maven uses a file called pom.xml (Project Object Model) as its configuration to manage project structure, dependencies, plugins, and lifecycle phases in a unified way.
+
+ Official [maven](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html) documentation
 
 ## Background
 Maven was initially developed to simplify the project build process by eliminating the complexity of managing project dependencies and builds. It leverages a "Convention over Configuration" approach, which standardizes the project structure and lifecycle, making it easier for developers to manage builds and dependencies without excessive configuration.
@@ -164,5 +168,31 @@ jobs:
       run: mvn clean install
 ```
 
+# Development Environment Project
+![DevelopmentEnvironemntSetupProject!](https://lucid.app/publicSegments/view/ab240636-23d5-4a9b-9409-50128564c9ab/image.png)
+
+###### Project ToolBox 🧰
+- [Git](https://git-scm.com/) Git will be used to manage our application source code.
+- [Github](https://github.com/) Github is a free and open source distributed VCS designed to handle everything from small to very large projects with speed and efficiency
+- [Maven](https://maven.apache.org/) Maven will be used for the application packaging and building including running unit test cases
+
+## Configure Environments
+1) **Create a GitHub Repository**
+    - Navigate to https://github.com
+    - Click on Repositories
+    - Click on `Create` to Create a Repository
+     - Repository Name: maven-learning-project
+     - Click on `Create`
+     - Download the Project Zip from https://github.com/devopsmike-01/maven-learning-repo.git
+     - Unzip and Push the code to the Repository you just provisioned
+
+2) **Setting up Maven Server**
+    - Create an Amazon Linux 2 VM instance and call it "jenkins-maven-ansible"
+    - Instance type: t2.micro
+    - Security Group (Open): 22 to 0.0.0.0/0 or Your-IP
+    - Key pair: Select or create a new keypair
+    - Follow the installation steps in this repo: https://github.com/devopsmike-01/maven-learning-repo/blob/main/Maven-installation/maven-install.md
+    - Launch Instance
+    
 **Conclusion**
 Apache Maven is an essential tool for managing Java projects, providing dependency management, build automation, and integration with various DevOps tools. By following a standardized build lifecycle, Maven simplifies complex build processes, ensuring consistent and reproducible builds across teams. Its ability to integrate with CI/CD systems, code quality tools, and artifact repositories makes it indispensable for modern Java-based DevOps pipelines.
