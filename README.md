@@ -21,6 +21,105 @@ Maven repository is a place where the maven artefacts or dependencies of the JAR
 
 Maven reads the `pom.xml` file.Maven downloads the dependencies defined in the `pom.xml` file into the local repository from the central or remote repository.Maven executes the life cycles, phases, goals, and plugins defined in the `pom.xml` file.
 
+**Sample `pom.xml` file**
+
+```
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>demo-application</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+    <name>Demo Application</name>
+
+    <!-- Set Java and Spring Boot versions -->
+    <properties>
+        <java.version>11</java.version>
+        <spring-boot.version>2.5.4</spring-boot.version>
+    </properties>
+
+    <!-- Dependencies for Spring Boot and Testing -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- Build plugins for Spring Boot, Java compilation, and SonarQube analysis -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9.1.2184</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- Nexus repository deployment configuration -->
+    <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://localhost:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>http://localhost:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <!-- Profiles for SonarQube and Nexus credentials -->
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <properties>
+                <sonar.host.url>http://localhost:9000</sonar.host.url>
+                <sonar.login>${env.SONAR_TOKEN}</sonar.login>
+            </properties>
+        </profile>
+        <profile>
+            <id>nexus</id>
+            <properties>
+                <nexus.username>${env.NEXUS_USERNAME}</nexus.username>
+                <nexus.password>${env.NEXUS_PASSWORD}</nexus.password>
+            </properties>
+        </profile>
+    </profiles>
+</project>
+
+```
+
+**Summary of Key Parts**
+- *Project Information*: Contains groupId, artifactId, and version to uniquely identify the project.
+- *Dependencies*: Essential Spring Boot and testing dependencies.
+- *Build Plugins*:
+- - *Spring Boot Plugin*: Packages the application as an executable JAR.
+- - *Maven Compiler Plugin*: Specifies Java version for compilation.
+- - *SonarQube Plugin*: Enables SonarQube analysis.
+- *Distribution Management*: Configures Nexus endpoints for deploying releases and snapshots.
+- *Profiles*:
+- - *SonarQube*: Contains SonarQube server URL and token.
+- - *Nexus*: Sets Nexus credentials using environment variables.
+
 ## Why Use Maven?
 - **Dependency Management**: Maven can easily manage and download project dependencies, reducing the manual effort required to locate, download, and update dependencies.
 - **Build Lifecycle Management**: Maven standardizes build processes, so project compilation, packaging, testing, and deployment are consistent across different environments.
