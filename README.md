@@ -109,14 +109,14 @@ Maven reads the `pom.xml` file.Maven downloads the dependencies defined in the `
 ```
 
 **Summary of Key Parts**
-- *Project Information*: Contains groupId, artifactId, and version to uniquely identify the project.
-- *Dependencies*: Essential Spring Boot and testing dependencies.
-- *Build Plugins*:
+- **Project Information**: Contains groupId, artifactId, and version to uniquely identify the project.
+- **Dependencies**: Essential Spring Boot and testing dependencies.
+- **Build Plugins**:
 - - *Spring Boot Plugin*: Packages the application as an executable JAR.
 - - *Maven Compiler Plugin*: Specifies Java version for compilation.
 - - *SonarQube Plugin*: Enables SonarQube analysis.
-- *Distribution Management*: Configures Nexus endpoints for deploying releases and snapshots.
-- *Profiles*:
+- **Distribution Management**: Configures Nexus endpoints for deploying releases and snapshots.
+- **Profiles**:
 - - *SonarQube*: Contains SonarQube server URL and token.
 - - *Nexus*: Sets Nexus credentials using environment variables.
 
