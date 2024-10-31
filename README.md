@@ -112,13 +112,13 @@ Maven reads the `pom.xml` file.Maven downloads the dependencies defined in the `
 - **Project Information**: Contains groupId, artifactId, and version to uniquely identify the project.
 - **Dependencies**: Essential Spring Boot and testing dependencies.
 - **Build Plugins**:
-- - *Spring Boot Plugin*: Packages the application as an executable JAR.
-- - *Maven Compiler Plugin*: Specifies Java version for compilation.
-- - *SonarQube Plugin*: Enables SonarQube analysis.
+    - *Spring Boot Plugin*: Packages the application as an executable JAR.
+    - *Maven Compiler Plugin*: Specifies Java version for compilation.
+    - *SonarQube Plugin*: Enables SonarQube analysis.
 - **Distribution Management**: Configures Nexus endpoints for deploying releases and snapshots.
 - **Profiles**:
-- - *SonarQube*: Contains SonarQube server URL and token.
-- - *Nexus*: Sets Nexus credentials using environment variables.
+    - *SonarQube*: Contains SonarQube server URL and token.
+    - *Nexus*: Sets Nexus credentials using environment variables.
 
 ## Why Use Maven?
 - **Dependency Management**: Maven can easily manage and download project dependencies, reducing the manual effort required to locate, download, and update dependencies.
@@ -274,6 +274,7 @@ jobs:
 - [Git](https://git-scm.com/) Git will be used to manage our application source code.
 - [Github](https://github.com/) Github is a free and open source distributed VCS designed to handle everything from small to very large projects with speed and efficiency
 - [Maven](https://maven.apache.org/) Maven will be used for the application packaging and building including running unit test cases
+- [EC2](https://aws.amazon.com/ec2/) EC2 allows users to rent virtual computers (EC2) to run their own workloads and applications.
 
 ## Configure Environments
 1) **Create a GitHub Repository**
@@ -286,7 +287,7 @@ jobs:
      - Unzip and Push the code to the Repository you just provisioned
 
 2) **Setting up Maven Server**
-    - Create an Amazon Linux 2 VM instance and call it "jenkins-maven-ansible"
+    - Create an Amazon Linux 2 VM instance and call it "maven-server"
     - Instance type: t2.micro
     - Security Group (Open): 22 to 0.0.0.0/0 or Your-IP
     - Key pair: Select or create a new keypair
