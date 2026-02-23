@@ -18,7 +18,7 @@ The following are instructions for installing Apache Maven and Java 8 on an Amaz
 - Then you can use yum to install Maven.
 
     ```
-    sudo yum install -y apache-maven
+    sudo yum install -y maven
     ```
 3. The Gremlin libraries require Java 8. Enter the following to install Java 8 on your EC2 instance.
 
@@ -27,7 +27,7 @@ The following are instructions for installing Apache Maven and Java 8 on an Amaz
     ```
 4. Install Java11 for SonarQube
    ```
-   sudo amazon-linux-extras install java-openjdk11
+   sudo dnf install java-11-amazon-corretto
    ```
    or
    
@@ -67,5 +67,5 @@ sudo yum install git -y
 8. Create the Settings file inside of the `~/.m2` directory
     ```
     cd ~/.m2/
-    mv demo/settings.xml ~/.m2/
+    mv /settings.xml ~/.m2/
     ```
