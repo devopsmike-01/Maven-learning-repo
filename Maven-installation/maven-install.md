@@ -2,20 +2,9 @@ The following are instructions for installing Apache Maven and Java 8 on an Amaz
 
 ## Steps To Install Apache Maven and Java 8 on your EC2 instance
 
-1. Setup and connect to an Amazon EC2 linux2 instance with an SSH client. Note-Do not select the amazon 2023 instance. Choose the linux2 ami instead. 
+1. Setup and connect to an Amazon EC2 instance with an SSH client.
 
-2. Install Apache Maven on your EC2 instance. First, enter the following to add a repository with a Maven package.
-
-    ```
-    sudo wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
-    ```
-
-- Enter the following to set the version number for the packages.
-
-    ```
-    sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
-    ```
-- Then you can use yum to install Maven.
+2. Install Apache Maven on your EC2 instance use **yum** to install Maven.
 
     ```
     sudo yum install -y maven
