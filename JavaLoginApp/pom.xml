@@ -1,0 +1,133 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.5.11</version>
+    <relativePath/>
+  </parent>
+
+  <groupId>com.example</groupId>
+  <artifactId>nexus-login-demo</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>nexus-login-demo</name>
+  <description>Spring Boot app with simple form login + Nexus deploy + SonarQube analysis</description>
+
+  <properties>
+    <java.version>17</java.version>
+    <sonar-maven-plugin.version>5.5.0.6356</sonar-maven-plugin.version>
+    <!-- NXRM3 plugin is recommended by Sonatype for Nexus Repository 3 staging/deploy workflows -->
+    <nxrm3-maven-plugin.version>1.0.11</nxrm3-maven-plugin.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <!-- Where Maven "deploy" publishes your built artifact (can be overridden by profiles below) -->
+  <distributionManagement>
+    <snapshotRepository>
+      <id>nexus</id>
+      <url>http://44.197.187.53/repository/maven-snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>nexus</id>
+      <url>http://44.197.187.53/repository/maven-releases/</url>
+    </repository>
+  </distributionManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+
+      <!-- Pin Sonar Scanner for Maven version (recommended by SonarSource docs) -->
+      <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>${sonar-maven-plugin.version}</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <!--
+      Deploy (and optionally stage) to Nexus Repository 3 using Sonatype's NXRM3 Maven plugin.
+      - Use this profile in CI for publishing artifacts.
+      - Requires credentials in ~/.m2/settings.xml under server id "nexus".
+    -->
+    <profile>
+      <id>nexus-deploy</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nxrm3-maven-plugin</artifactId>
+            <version>${nxrm3-maven-plugin.version}</version>
+            <extensions>true</extensions>
+            <executions>
+              <execution>
+                <id>nxrm3-deploy</id>
+                <phase>deploy</phase>
+                <goals>
+                  <goal>deploy</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <nexusUrl>http://44.197.187.53/</nexusUrl>
+              <serverId>nexus</serverId>
+              <!-- choose the target hosted repository name in Nexus3 -->
+              <repository>maven-snapshots</repository>
+              <!-- If you want staging workflows, set this to false and use nxrm3:staging-deploy explicitly -->
+              <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <!--
+      "Dry build with Nexus": build & test while resolving all dependencies THROUGH your Nexus (mirror)
+      but DO NOT deploy anything.
+      Use with: mvn -s .mvn/settings.xml -Pdry-nexus clean verify
+    -->
+    <profile>
+      <id>dry-nexus</id>
+      <properties>
+        <maven.deploy.skip>true</maven.deploy.skip>
+      </properties>
+    </profile>
+  </profiles>
+
+</project>
