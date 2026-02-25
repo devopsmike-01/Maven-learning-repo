@@ -1,0 +1,30 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 https://maven.apache.org/xsd/settings-1.2.0.xsd">
+
+  <!--
+    Example Nexus setup:
+    1) Mirror all artifact downloads through Nexus ("dry build with Nexus")
+    2) Provide deploy credentials for server id "nexus"
+
+    Replace YOUR_NEXUS_HOST, username, password.
+  -->
+
+  <mirrors>
+    <mirror>
+      <id>nexus</id>
+      <name>Nexus mirror</name>
+      <url>https://YOUR_NEXUS_HOST/repository/maven-public/</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
+
+  <servers>
+    <server>
+      <id>nexus</id>
+      <username>${env.NEXUS_USERNAME}</username>
+      <password>${env.NEXUS_PASSWORD}</password>
+    </server>
+  </servers>
+
+</settings>

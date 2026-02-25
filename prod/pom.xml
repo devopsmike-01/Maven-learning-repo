@@ -13,7 +13,7 @@
   <groupId>com.example</groupId>
   <artifactId>hsbc.payment-gateway</artifactId>
   <version>1.0.0-SNAPSHOT</version>
-  <name>hsbc.payment-gateway</name>
+  <name>hsbc-payment</name>
   <description>Spring Boot app with simple form login + Nexus deploy + SonarQube analysis</description>
 
   <properties>
@@ -129,5 +129,5 @@
       </properties>
     </profile>
   </profiles>
-  
+
 </project>

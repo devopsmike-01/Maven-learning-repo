@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 3rem; }
+    .card { max-width: 420px; padding: 1.25rem; border: 1px solid #ddd; border-radius: 10px; }
+    label { display:block; margin-top: .75rem; }
+    input { width: 100%; padding: .6rem; margin-top: .25rem; }
+    button { margin-top: 1rem; padding: .6rem 1rem; cursor: pointer; }
+    .hint { margin-top: .75rem; font-size: .95rem; color: #444; }
+    .msg { margin: .75rem 0; color: #0a6; }
+    .err { margin: .75rem 0; color: #c00; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Sign in</h1>
+
+    <div th:if="${param.logout}" class="msg">You have been logged out.</div>
+    <div th:if="${param.error}" class="err">Invalid username or password.</div>
+
+    <form th:action="@{/login}" method="post">
+      <label for="username">Username</label>
+      <input id="username" name="username" type="text" autocomplete="username" />
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" />
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p class="hint">
+      Demo credentials: <strong>user</strong> / <strong>password</strong>
+    </p>
+
+    <p class="hint"><a th:href="@{/public}">Go to public page</a></p>
+  </div>
+</body>
+</html>

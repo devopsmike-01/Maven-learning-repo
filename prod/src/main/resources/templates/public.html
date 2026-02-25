@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Public</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 3rem; }
+    .card { max-width: 700px; padding: 1.25rem; border: 1px solid #ddd; border-radius: 10px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Public page</h1>
+    <p th:text="${message}">This page is public.</p>
+    <p><a th:href="@{/}">Go to protected page</a> (will require login)</p>
+  </div>
+</body>
+</html>
