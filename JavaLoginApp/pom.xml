@@ -55,11 +55,11 @@
   <!-- Where Maven "deploy" publishes your built artifact (can be overridden by profiles below) -->
   <distributionManagement>
     <snapshotRepository>
-      <id>nexus</id>
+      <id>nexusdeploymentrepo</id>
       <url>http://3.233.214.61:8081/repository/maven-snapshots/</url>
     </snapshotRepository>
     <repository>
-      <id>nexus</id>
+      <id>nexusdeploymentrepo</id>
       <url>http://3.233.214.61:8081/repository/maven-releases/</url>
     </repository>
   </distributionManagement>
