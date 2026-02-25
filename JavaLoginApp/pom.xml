@@ -13,7 +13,7 @@
   <groupId>hsbc.payment</groupId>
   <artifactId>hsbc.payment</artifactId>
   <version>1.0.0-SNAPSHOT-hsbc</version>
-  <name>nexus-login-demo</name>
+  <name>hsbc-payment</name>
   <description>Spring Boot app with simple form login + Nexus deploy + SonarQube analysis</description>
 
   <properties>
