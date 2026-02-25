@@ -60,7 +60,7 @@ under the License.
        <repository>
          <id>nexus-snapshot-repo</id>
          <name>hsbc-payment</name>
-         <url>http://3.233.214.61:8081/repository/hsbc-payment-snapshots</url>
+         <url>http://44.201.26.248:8081/repository/hsbc-payment-gateway-snapshots-repo/</url>
        </repository>
 	   
      </repositories>
@@ -71,7 +71,7 @@ under the License.
        <repository>
          <id>nexus-release-repo</id>
          <name>hsbc-payment</name>
-         <url>http://3.233.214.61:8081/repository/hsbc-payment-releases/</url>
+         <url>http://44.201.26.248:8081/repository/hsbc-payment-gateway-snapshots-repo/url>
        </repository>
      </repositories>
    </profile>
