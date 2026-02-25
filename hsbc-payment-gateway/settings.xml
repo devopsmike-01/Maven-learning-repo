@@ -59,8 +59,8 @@ under the License.
      <repositories>
        <repository>
          <id>nexus-snapshot-repo</id>
-         <name>your custom repo</name>
-         <url>http://3.233.214.61:8081/repository/maven-snapshots</url>
+         <name>hsbc-payment</name>
+         <url>http://3.233.214.61:8081/repository/hsbc-payment-snapshots</url>
        </repository>
 	   
      </repositories>
@@ -70,8 +70,8 @@ under the License.
      <repositories>
        <repository>
          <id>nexus-release-repo</id>
-         <name>your custom repo</name>
-         <url>http://3.233.214.61:8081/repository/maven-releases/</url>
+         <name>hsbc-payment</name>
+         <url>http://3.233.214.61:8081/repository/hsbc-payment-releases/</url>
        </repository>
      </repositories>
    </profile>

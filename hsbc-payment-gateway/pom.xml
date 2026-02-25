@@ -10,9 +10,9 @@
     <relativePath/>
   </parent>
 
-  <groupId>com.example</groupId>
-  <artifactId>nexus-login-demo</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <groupId>hsbc.payment</groupId>
+  <artifactId>hsbc.payment</artifactId>
+  <version>1.0.0-SNAPSHOT-hsbc</version>
   <name>nexus-login-demo</name>
   <description>Spring Boot app with simple form login + Nexus deploy + SonarQube analysis</description>
 
@@ -56,11 +56,11 @@
   <distributionManagement>
     <snapshotRepository>
       <id>nexusdeploymentrepo</id>
-      <url>http://3.233.214.61:8081/repository/maven-snapshots/</url>
+      <url>http://3.233.214.61:8081/repository/hsbc-payment-snapshots/</url>
     </snapshotRepository>
     <repository>
       <id>nexusdeploymentrepo</id>
-      <url>http://3.233.214.61:8081/repository/maven-releases/</url>
+      <url>http://3.233.214.61:8081/repository/hsbc-payment-releases/</url>
     </repository>
   </distributionManagement>
 
@@ -108,7 +108,7 @@
               <nexusUrl>http://3.233.214.61:8081</nexusUrl>
               <serverId>nexus</serverId>
               <!-- choose the target hosted repository name in Nexus3 -->
-              <repository>maven-snapshots</repository>
+              <repository>hsbc-payment-snapshots</repository>
               <!-- If you want staging workflows, set this to false and use nxrm3:staging-deploy explicitly -->
               <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
             </configuration>
