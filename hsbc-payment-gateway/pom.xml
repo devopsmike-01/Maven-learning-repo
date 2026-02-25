@@ -12,7 +12,7 @@
 
   <groupId>com.example</groupId>
   <artifactId>hsbc.payment-gateway</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>v1.0.0</version>
   <name>hsbc.payment-gateway</name>
   <description>Spring Boot app with simple form login + Nexus deploy + SonarQube analysis</description>
 
@@ -108,7 +108,7 @@
               <nexusUrl>http://44.201.26.248:8081</nexusUrl>
               <serverId>nexus</serverId>
               <!-- choose the target hosted repository name in Nexus3 -->
-              <repository>hsbc-payment-gateway-snapshots</repository>
+              <repository>hsbc-payment-gateway-realeases</repository>
               <!-- If you want staging workflows, set this to false and use nxrm3:staging-deploy explicitly -->
               <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
             </configuration>
