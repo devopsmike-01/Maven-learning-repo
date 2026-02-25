@@ -15,24 +15,24 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
   @Bean
-  SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-    http
-      .authorizeHttpRequests(auth -> auth
-        .requestMatchers("/login", "/css/**", "/public/**").permitAll()
-        .anyRequest().authenticated()
-      )
-      .formLogin(form -> form
-        .loginPage("/login")
-        .defaultSuccessUrl("/", true)
-        .permitAll()
-      )
-      .logout(logout -> logout
-        .logoutSuccessUrl("/login?logout")
-        .permitAll()
-      );
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+      http
+        .authorizeHttpRequests(auth -> auth
+          .requestMatchers("/public", "/public/**", "/css/**", "/js/**", "/images/**", "/error", "/login").permitAll()
+          .anyRequest().authenticated()
+        )
+        .formLogin(form -> form
+          .loginPage("/login")
+          .permitAll()
+          .defaultSuccessUrl("/", true)
+        )
+        .logout(logout -> logout
+          .logoutSuccessUrl("/public")
+          .permitAll()
+        );
 
-    return http.build();
-  }
+      return http.build();
+    }
 
   @Bean
   UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
