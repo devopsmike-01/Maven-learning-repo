@@ -56,11 +56,11 @@
   <distributionManagement>
     <snapshotRepository>
       <id>nexus</id>
-      <url>http://44.197.187.53:8081/repository/maven-snapshots/</url>
+      <url>http://3.233.214.61:8081/repository/maven-snapshots/</url>
     </snapshotRepository>
     <repository>
       <id>nexus</id>
-      <url>http://44.197.187.53:8081/repository/maven-releases/</url>
+      <url>http://3.233.214.61:8081/repository/maven-releases/</url>
     </repository>
   </distributionManagement>
 
@@ -105,7 +105,7 @@
               </execution>
             </executions>
             <configuration>
-              <nexusUrl>http://44.197.187.53:8081</nexusUrl>
+              <nexusUrl>http://3.233.214.61:8081</nexusUrl>
               <serverId>nexus</serverId>
               <!-- choose the target hosted repository name in Nexus3 -->
               <repository>maven-snapshots</repository>
