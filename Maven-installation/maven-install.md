@@ -1,7 +1,9 @@
 The following are instructions for installing Apache Maven and Java 8 on an Amazon EC2 instance. These are required for the Amazon Neptune Signature Version 4 authentication samples.
 
 ## Steps To Install Apache Maven and Java 8 on your EC2 instance
-
+```
+git clone https://github.com/devopsmike-01/Maven-learning-repo.git
+```
 1. Setup and connect to an Amazon EC2 instance with an SSH client.
 
 2. Install Apache Maven on your EC2 instance use **yum** to install Maven.
